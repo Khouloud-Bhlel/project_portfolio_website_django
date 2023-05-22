@@ -32,7 +32,11 @@
             <td>{{ projet.date_debut }}</td>
             <td>{{ projet.date_fin }}</td>
             <td>{{ projet.acheve }}</td>
-            <td>{{ projet.progression }}%</td>
+            <td>
+              <div class="progress">
+                <div class="progress-bar" role="progressbar" style="width: {{ projet.progression }}%;" aria-valuenow="{{ projet.progression }}" aria-valuemin="0" aria-valuemax="100">{{ projet.progression }}%</div>
+              </div>
+            </td>
             <td>
               <a href="{% url 'modifier_projet' projet.pk %}" class="btn btn-success">Modifier</a>
               <a href="{% url 'supprimer_projet' projet.pk %}" class="btn btn-danger">Supprimer</a>
