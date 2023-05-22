@@ -1,0 +1,51 @@
+{% extends 'basic.html' %}
+
+{% block title %}Projets{% endblock %}
+
+{% block body %}
+{% load static %}
+<section id="project" class="project">
+  <div class="container">
+    <div class="section-title">
+      <h1>Projets</h1>
+      <p>Travaux de projet</p>
+      <a href="{% url 'creer_projet' %}" class="btn btn-primary">Ajouter</a>
+    </div>
+    <div class="table-responsive">
+      <table class="table table-striped table-hover">
+        <thead>
+          <tr>
+            <th>Libellé</th>
+            <th>Description</th>
+            <th>Date de début</th>
+            <th>Date de fin</th>
+            <th>Terminé</th>
+            <th>Progression</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for projet in projects reversed %}
+          <tr>
+            <td>{{ projet.libellee }}</td>
+            <td>{{ projet.descriptionn }}</td>
+            <td>{{ projet.date_debut }}</td>
+            <td>{{ projet.date_fin }}</td>
+            <td>{{ projet.acheve }}</td>
+            <td>{{ projet.progression }}%</td>
+            <td>
+              <a href="{% url 'modifier_projet' projet.pk %}" class="btn btn-success">Modifier</a>
+              <a href="{% url 'supprimer_projet' projet.pk %}" class="btn btn-danger">Supprimer</a>
+            </td>
+          </tr>
+          {% empty %}
+          <tr>
+            <td colspan="7">Aucun projet n'est enregistré.</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+{% endblock %}

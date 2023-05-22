@@ -1,0 +1,15 @@
+{% extends 'basic.html' %} 
+
+{% block title %} projetS{% endblock title %}
+
+{% block body %} 
+{% block content %}
+  <h1>Supprimer le projet "{{ object.libellee }}"</h1>
+  <form method="post">
+    {% csrf_token %}
+    <p>Êtes-vous sûr de vouloir supprimer ce projet ?</p>
+    <button type="submit">Supprimer</button>
+    <a href="{% url 'project' %}">Annuler</a>
+  </form>
+  {% endblock content %}
+  {% endblock body %}

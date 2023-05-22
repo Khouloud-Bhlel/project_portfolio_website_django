@@ -1,0 +1,17 @@
+
+{% extends 'basic.html' %} 
+
+{% block title %} serviceS{% endblock title %}
+
+{% block body %} 
+{% block content %}
+  <div class="container">
+    <h1>Créer un nouveau service</h1>
+    <form method="POST">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit" class="btn btn-primary">Enregistrer</button>
+    </form>
+  </div>
+{% endblock content%}
+{% endblock body %}

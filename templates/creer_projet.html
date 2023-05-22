@@ -1,0 +1,18 @@
+{% extends 'basic.html' %}
+
+{% block title %}Créer un nouveau projet{% endblock title %}
+
+{% block body %}
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <h1>Créer un nouveau projet</h1>
+        <form method="post">
+          {% csrf_token %}
+          {{ form.as_p }}
+          <button type="submit" class="btn btn-primary">Enregistrer</button>
+        </form>
+      </div>
+    </div>
+  </div>
+{% endblock body %}

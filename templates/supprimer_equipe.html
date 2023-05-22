@@ -1,0 +1,15 @@
+{% extends 'basic.html' %} 
+
+{% block title %} equipes{% endblock title %}
+
+{% block body %} 
+{% block content %}
+  <h1>Supprimer equipe "{{ object.Nom }}"</h1>
+  <form method="post">
+    {% csrf_token %}
+    <p>Êtes-vous sûr de vouloir supprimer l'equipe ?</p>
+    <button type="submit">Supprimer</button>
+    <a href="{% url 'equipe' %}">Annuler</a>
+  </form>
+  {% endblock content %}
+  {% endblock body %}

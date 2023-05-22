@@ -1,0 +1,64 @@
+{% extends 'basic.html' %}
+{% block title %} About {% endblock title %}
+{% block body %}
+{% load static %}
+ <section id="about" class="about">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>portfolio</h2>
+          <p>Creative Girls est une agence de design graphique, production audiovisuelle et conception 3D spécialisée dans la création de contenus créatifs et 
+            innovants pour différents types de clients. Leur expertise en matière de design graphique leur permet de concevoir des identités visuelles, des logos, 
+            des supports de communication et de marketing visuels, des illustrations, des infographies, des présentations, des vidéos promotionnelles et publicitaires, 
+            ainsi que des sites web professionnels.</p>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-4" data-aos="fade-right">
+            <img src="{% static 'assets/img/img3.png' %}" class="img-fluid" alt="">
+          </div>
+          <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
+            <h3> Designer &amp; Web Developer.</h3>
+            <p class="fst-italic">
+              Un designer est un professionnel qui crée des concepts visuels et des conceptions en utilisant divers outils et techniques pour communiquer des idées et résoudre des problèmes. Ils travaillent souvent sur des projets tels que l'image de marque, la publicité, la conception Web et l'emballage des produits.
+              Un développeur Web, quant à lui, est un programmeur spécialisé dans la création et la maintenance de sites Web et d'applications Web. Ils utilisent des langages de programmation tels que HTML, CSS, JavaScript et PHP pour développer et coder des sites Web et des applications Web.
+            </p>
+            <div class="row">
+              <div class="col-lg-6">
+                <ul> 
+                  <li><i class="bi bi-chevron-right"></i> <strong>Ville:</strong> <span>Tunis</span></li>
+                </ul>
+              </div>
+              <div class="col-lg-6">
+                <ul>
+                  <li><i class="bi bi-chevron-right"></i> <strong>Free-lance:</strong> <span>nadia et khouloud</span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <section id="projects" class="projects">
+          <div class="container">
+              <div class="section-title">
+                  <h2>Projects</h2>
+              </div>
+              <div class="row">
+                  {% for projet in projets %}
+                  <div class="col-lg-4" data-aos="fade-up">
+                      <h3>{{ projet.libellee }}</h3>
+                      <p>{{ projet.descriptionn }}</p>
+                      <p>Start Date: {{ projet.date_debut }}</p>
+                      <p>End Date: {{ projet.date_fin }}</p>
+                      {% if projet.acheve %}
+                      <p>Status: Completed</p>
+                      {% else %}
+                      <p>Status: In Progress</p>
+                      {% endif %}
+                  </div>
+                  {% endfor %}
+              </div>
+          </div>
+      </div>
+    </section><!-- End About Section -->
+
+{% endblock body %}

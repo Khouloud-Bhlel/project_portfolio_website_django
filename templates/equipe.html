@@ -1,0 +1,40 @@
+{% extends 'basic.html' %}
+
+{% block title %}Equipes{% endblock %}
+
+{% block body %}
+{% load static %}
+<section>
+  <h1>Liste des équipes</h1>
+    <div class="d-flex justify-content-between mb-3">
+      <a href="{% url 'ajouter_equipe' %}" class="btn btn-primary">Ajouter</a>
+    </div>
+    <div class="table-responsive">
+      <table class="table table-striped table-hover">
+        <thead>
+          <tr>
+            <th>Nom</th>
+            <th>Projet</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for equipe in posts %}
+          <tr>
+            <td>{{ equipe.Nom }}</td>
+            <td>{{ equipe.projet.libellee }}</td>
+            <td>
+              <a href="{% url 'modifier_equipe' equipe.pk %}" class="btn btn-success">Modifier</a>
+              <a href="{% url 'supprimer_equipe' equipe.pk %}" class="btn btn-danger">Supprimer</a>
+            </td>
+          </tr>
+          {% empty %}
+          <tr>
+            <td colspan="3">Aucune équipe n'est enregistrée.</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends 'basic.html' %} 
+
+{% block title %}Modifier l'équipe "{{ object.Nom }}"{% endblock %}
+
+{% block body %} 
+  <h1>Modifier l'équipe "{{ object.Nom }}"</h1>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Enregistrer</button>
+  </form>
+{% endblock %}

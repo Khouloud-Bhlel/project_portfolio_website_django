@@ -1,0 +1,17 @@
+{% extends 'basic.html' %} 
+
+{% block title %} serviceS{% endblock title %}
+
+{% block body %} 
+{% block content %}
+  <div class="container">
+    <h1>Supprimer le service "{{ service.title }}"</h1>
+    <p>Êtes-vous sûr de vouloir supprimer ce service ?</p>
+    <form method="POST">
+      {% csrf_token %}
+      <button type="submit" class="btn btn-danger">Supprimer</button>
+      <a href="{% url 'handleblog' %}" class="btn btn-secondary">Annuler</a>
+    </form>
+  </div>
+  {% endblock content%}
+  {% endblock body %}

@@ -1,0 +1,14 @@
+{% extends 'basic.html' %} 
+
+{% block title %} personnelS{% endblock title %}
+
+{% block body %} 
+{% block content %}
+  <h1>Ajouter personnel</h1>
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Ajouter</button>
+  </form>
+{% endblock content %}
+{% endblock body %}

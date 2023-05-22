@@ -1,0 +1,22 @@
+{% extends 'basic.html' %}
+{% block title %} Creative Girls {% endblock title %}
+{% block hero %}
+  <section  class="d-flex flex-column justify-content-center align-items-center">
+    <div class="hero-container" data-aos="fade-in">
+      <h1>Creative Girls</h1>
+      <p>We are => <span class="typed" data-typed-items="Designers, Developers, Freelancers"></span></p>
+    </div>
+  </section>
+
+{% endblock hero %}
+{% block body %}
+
+{% for message in messages %}
+
+<div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
+  <strong>{{message}} </strong> 
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{% endfor %}
+
+{% endblock body %}

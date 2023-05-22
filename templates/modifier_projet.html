@@ -1,0 +1,37 @@
+{% extends 'basic.html' %}
+
+{% block title %}Modifier le projet "{{ object.libellee }}"{% endblock title %}
+
+{% block body %}
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <h1>Modifier le projet "{{ object.libellee }}"</h1>
+      <form method="post">
+        {% csrf_token %}
+        <div class="form-group">
+          {{ form.libellee.label_tag }}
+          {{ form.libellee }}
+        </div>
+        <div class="form-group">
+          {{ form.descriptionn.label_tag }}
+          {{ form.descriptionn }}
+        </div>
+        <div class="form-group">
+          {{ form.date_debut.label_tag }}
+          <input type="date" name="{{ form.date_debut.name }}" value="{{ object.date_debut|date:'Y-m-d' }}" />
+        </div>
+        <div class="form-group">
+          {{ form.date_fin.label_tag }}
+          <input type="date" name="{{ form.date_fin.name }}" value="{{ object.date_fin|date:'Y-m-d' }}" />
+        </div>
+        <div class="form-group">
+          {{ form.acheve.label_tag }}
+          <input type="number" name="{{ form.progression.name }}" min="0" max="100" value="{{ object.progression }}" />
+        </div>
+        <button type="submit" class="btn btn-primary">Enregistrer</button>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock body %}

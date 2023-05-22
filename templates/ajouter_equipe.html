@@ -1,0 +1,12 @@
+{% extends 'basic.html' %} 
+
+{% block title %}Ajouter une équipe{% endblock %}
+
+{% block body %} 
+  <h1>Créer une nouvelle équipe</h1>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Enregistrer</button>
+  </form>
+{% endblock %}
